@@ -30,7 +30,7 @@ simScore : List ℕ → List ℕ → ℕ
 simScore (x ∷ xs) ys =
   let yss = dropWhile (Data.Nat._<? x) ys
       ⟨ r , ysss ⟩ = span (Data.Nat._≟ x) yss
-  in Data.List.length r * x + simScore xs yss
+  in Data.List.length r * x + simScore xs ysss
 simScore _ _ = 0
    
 partB : String → String
