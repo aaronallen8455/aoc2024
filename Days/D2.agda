@@ -1,7 +1,7 @@
 module Days.D2 where
 
 open import Data.String using (String; lines; words)
-open import Data.List using (mapMaybe; map; List; all; drop; zip; reverse; length; filter; foldl; _∷_; inits; tails; _++_; any)
+open import Data.List using (mapMaybe; map; List; all; drop; zip; reverse; length; filterᵇ; foldl; _∷_; inits; tails; _++_; any)
 open import Data.Nat
 open import Data.Nat.Show
 open import Data.Bool
@@ -18,7 +18,7 @@ isSafe xs =
 partA : String → String
 partA inp =
   let lns = map (mapMaybe (readMaybe 10) ∘ words) (lines inp)
-  in show (length (filter (λ x → isSafe x Data.Bool.≟ true) lns))
+  in show (length (filterᵇ isSafe lns))
 
 splits : List ℕ → List (List ℕ)
 splits xs = xs ∷
@@ -27,4 +27,4 @@ splits xs = xs ∷
 partB : String → String
 partB inp =
   let lns = map (mapMaybe (readMaybe 10) ∘ words) (lines inp)
-  in show (length (filter (λ x → any isSafe (splits x) Data.Bool.≟ true) lns))
+  in show (length (filterᵇ (any isSafe ∘ splits) lns))

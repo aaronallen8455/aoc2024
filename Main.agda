@@ -10,6 +10,7 @@ open import System.Environment
 
 open import Days.D1 as D1
 open import Days.D2 as D2
+open import Days.D3 as D3
 
 day : String → (String → String) → IO _
 day inpFile solve = do
@@ -24,4 +25,6 @@ main = run $ do
     ( "1" ∷ "b" ∷ [] ) → day "1" D1.partB
     ( "2" ∷ "a" ∷ [] ) → day "2" D2.partA
     ( "2" ∷ "b" ∷ [] ) → day "2" D2.partB
+    ( "3" ∷ "a" ∷ [] ) → day "3" D3.partA
+    ( "3" ∷ "b" ∷ [] ) → day "3" D3.partB
     _ → putStrLn "not found"
