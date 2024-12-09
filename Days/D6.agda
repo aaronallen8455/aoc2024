@@ -142,10 +142,6 @@ checkLoop rs start c =
     (just (_ , _ , _ , true)) → true
     _ → false
 
-showCoords : List (ℕ × ℕ) → String
-showCoords [] = ""
-showCoords ((r , c) ∷ xs) = "(" Data.String.++ (Data.Nat.Show.show r) Data.String.++ "," Data.String.++ (Data.Nat.Show.show c) Data.String.++ ")" Data.String.++ showCoords xs
-
 partB : String → String
 partB inp =
   let cells = map (λ l → map toCell $ Data.String.toList l) (lines inp)
