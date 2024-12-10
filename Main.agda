@@ -1,3 +1,4 @@
+{-# OPTIONS --rewriting #-}
 {-# OPTIONS --guardedness #-}
 
 module Main where
@@ -15,6 +16,7 @@ open import Days.D4 as D4
 open import Days.D5 as D5
 open import Days.D6 as D6
 open import Days.D7 as D7
+open import Days.D8 as D8
 
 day : String → (String → String) → IO _
 day inpFile solve = do
@@ -39,4 +41,6 @@ main = run $ do
     ( "6" ∷ "b" ∷ [] ) → day "6" D6.partB
     ( "7" ∷ "a" ∷ [] ) → day "7" D7.partA
     ( "7" ∷ "b" ∷ [] ) → day "7" D7.partB
+    ( "8" ∷ "a" ∷ [] ) → day "8" D8.partA
+    ( "8" ∷ "b" ∷ [] ) → day "8" D8.partB
     _ → putStrLn "not found"
