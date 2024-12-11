@@ -116,19 +116,17 @@ antinode' sz (r1 , c1) (r2 , c2) = until rn1 cn1 (rr1 , cc1) L.++ until rn2 cn2 
   cc2 = proj₂ (proj₂ grr)
   rise = ∣ r1 - r2 ∣
   run = ∣ c1 - c2 ∣
-  rn1 : ℕ → Maybe ℕ
+  rn1 rn2 cn1 cn2 : ℕ → Maybe ℕ
   rn1 z =
     if ⌊ z N.<? rise ⌋
     then nothing
     else just ∣ z - rise ∣
 
-  rn2 : ℕ → Maybe ℕ
   rn2 z =
     if ⌊ z + rise ≥? sz ⌋
     then nothing
     else just (z + rise)
 
-  cn1 : ℕ → Maybe ℕ
   cn1 z =
     if ⌊ cc1 N.<? cc2 ⌋
     then if ⌊ z N.<? run ⌋
@@ -138,7 +136,6 @@ antinode' sz (r1 , c1) (r2 , c2) = until rn1 cn1 (rr1 , cc1) L.++ until rn2 cn2 
          then nothing
          else just (z + run)
 
-  cn2 : ℕ → Maybe ℕ
   cn2 z =
     if ⌊ cc1 N.<? cc2 ⌋
     then if ⌊ z + run N.≥? sz ⌋

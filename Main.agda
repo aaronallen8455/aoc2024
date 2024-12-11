@@ -17,6 +17,7 @@ open import Days.D5 as D5
 open import Days.D6 as D6
 open import Days.D7 as D7
 open import Days.D8 as D8
+open import Days.D9 as D9
 
 day : String → (String → String) → IO _
 day inpFile solve = do
@@ -43,4 +44,6 @@ main = run $ do
     ( "7" ∷ "b" ∷ [] ) → day "7" D7.partB
     ( "8" ∷ "a" ∷ [] ) → day "8" D8.partA
     ( "8" ∷ "b" ∷ [] ) → day "8" D8.partB
+    ( "9" ∷ "a" ∷ [] ) → day "9" D9.partA
+    ( "9" ∷ "b" ∷ [] ) → day "9" D9.partB
     _ → putStrLn "not found"
