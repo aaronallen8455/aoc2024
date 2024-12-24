@@ -31,7 +31,7 @@ open import Data.Tree.AVL.NonEmpty C.<-strictTotalOrder as AN
 Tss : Set
 Tss = TE.Trie⁺ (const _ ⊤) _
 
-compact : TE.Tries⁺ (const _ ⊤) _ → TE.Trie⁺ (const _ ⊤) _
+compact : TE.Tries⁺ (const _ ⊤) _ → Tss
 compact ts = TE.node (that ts)
 
 parseTs : String → List (List Char)
