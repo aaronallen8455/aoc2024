@@ -77,7 +77,7 @@ parseC ln = case Str.wordsByᵇ (C._== ',') ln of λ where
  where open RawMonad ME.monad
 
 showC : ℕ × ℕ → String
-showC (r , c) = NS.show r Str.++ ", " Str.++ NS.show c
+showC (r , c) = NS.show (pred r) Str.++ ", " Str.++ NS.show (pred c)
 
 partA : String → String
 partA inp =
