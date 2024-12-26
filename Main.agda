@@ -31,6 +31,7 @@ open import Days.D18 as D18
 open import Days.D19 as D19
 open import Days.D20 as D20
 open import Days.D21 as D21
+open import Days.D22 as D22
 
 day : String → (String → String) → IO _
 day inpFile solve = do
@@ -83,4 +84,6 @@ main = run $ do
     ( "20" ∷ "b" ∷ [] ) → day "20" D20.partB
     ( "21" ∷ "a" ∷ [] ) → day "21" D21.partA
     ( "21" ∷ "b" ∷ [] ) → day "21" D21.partB
+    ( "22" ∷ "a" ∷ [] ) → day "22" D22.partA
+    ( "22" ∷ "b" ∷ [] ) → day "22" D22.partB
     _ → putStrLn "not found"
