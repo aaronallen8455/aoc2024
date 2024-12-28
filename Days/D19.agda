@@ -34,14 +34,6 @@ Tss = TE.Trie⁺ (const _ ⊤) _
 compact : TE.Tries⁺ (const _ ⊤) _ → Tss
 compact ts = TE.node (that ts)
 
-parseTs : String → List (List Char)
-parseTs = L.map (dropWhileᵇ (C._== ' ') ∘ Str.toList) ∘ Str.wordsByᵇ (C._== ',')
-
-isPrefix : List Char → List Char → Maybe (List Char)
-isPrefix [] bs = just bs
-isPrefix _ [] = nothing
-isPrefix (a ∷ as) (b ∷ bs) = if (a C.== b) then (isPrefix as bs) else nothing
-
 check : Tss → List Char → Bool
 check full = go [ full ] where
 
