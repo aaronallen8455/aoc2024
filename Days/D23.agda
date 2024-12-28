@@ -1,4 +1,3 @@
-{-# OPTIONS --rewriting #-}
 module Days.D23 where
 
 open import Data.String as Str
@@ -23,8 +22,6 @@ open import Effect.Monad
 open import Data.Unit
 open import Effect.Monad
 open import Effect.Monad.State as MS
-
-open import Debug.Trace
 
 Edges : Set
 Edges = Map ⊤
